@@ -1,0 +1,8 @@
+<%- include('partials/header.ejs') %>
+<form action="/categories/create" method="post">
+    <label for="name">Category name: </label>
+    <input type="text" name="name" placeholder="Item name" required>
+    <label for="description">Description: </label>
+    <textarea type="text" placeholder="Category Type" name="description" maxlength="100" required></textarea>
+    <button type="submit">Submit</button>
+</form>

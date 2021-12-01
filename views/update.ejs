@@ -1,0 +1,23 @@
+<%- include('partials/header.ejs') %>
+
+<form action="/<%= route %>/<%= item %>/update/valid" method="post">
+    <label for="name">Item name: </label>
+    <input type="text" name="name" required>
+    <label for="description">Description: </label>
+    <textarea type="text" name="description" maxlength="100" required></textarea>
+    <label for="price">Price: </label>
+    <input type="number" name="price" required>
+    <label for="quantity">Quantity: </label>
+    <input type="number" name="quantity" required>
+    
+    <% if (categories) { %>
+        <label for="category">Category</label>
+        <select class="form-control" name="category" required>
+            <% categories.forEach(category => { %>
+                <option value="<%= category._id %>"><%= category.name %></option> 
+            <% }) %>
+        </select>
+    <% } %>
+
+    <button type="submit">Submit</button>
+</form>

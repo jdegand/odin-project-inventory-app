@@ -1,0 +1,8 @@
+<%- include('partials/header.ejs') %>
+<h1>Are you sure you want to delete?</h1>
+
+<form action="/<%= route %>/<%= id %>/delete" method="post">
+    <label for="admincode">Admin Code: </label>
+    <input type="text" name="admincode" placeholder="Admin code required" required>
+    <button type="submit">Delete</button>
+</form>

@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs') %>
+<h1>Items view</h1>
+
+<% if (items) {%>
+                   
+    <% items.forEach( item => { %>
+        <img src="/images/<%= item.url %>" alt="">
+        <br>
+        <table>
+            <tr>
+                <td><%= JSON.stringify(item) %></td>
+            </tr>
+            <tr>
+                <td>Name: <%= item.name %></td>
+            </tr>
+            <tr>
+                <td>Description: <%= item.description %></td>
+            </tr>
+            
+            <% if(item.category) { %> 
+                <tr>                
+                    <td>Category: <%= item.category.name %></td>
+                </tr>
+            <% } %>
+
+            <tr>
+                <td>Price: <%= item.price %></td>
+            </tr>
+            <tr>
+                <td>Quantity: <%= item.quantity %></td>
+            </tr>
+        </table>
+        <a href="/items/<%= item._id %>">Details</a>
+        <a href="/items/<%= item._id %>/update">Update</a>
+        <a href="/items/<%= item._id %>/delete">Delete</a>
+        <br>
+        <% }) %>
+    <% } %>

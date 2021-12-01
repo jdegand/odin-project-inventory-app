@@ -1,0 +1,23 @@
+<%- include('partials/header.ejs') %>
+
+<form action="/items/create" method="post" enctype="multipart/form-data">
+    <label for="name">Item name: </label>
+    <input type="text" name="name" placeholder="Item name" required>
+    <label for="description">Description: </label>
+    <textarea type="text" placeholder="Item Description" name="description" maxlength="100" required></textarea>
+    <label for="price">Price: </label>
+    <input type="number" name="price" placeholder="Price" required>
+    <label for="quantity">Quantity: </label>
+    <input type="number" name="quantity" placeholder="How many items" required>
+    <% if (categories) { %>
+        <label for="category">Category</label>
+        <select class="form-control" name="category" required>
+            <% categories.forEach(category => { %>
+                <option value="<%= category._id %>"><%= category.name %></option> 
+            <% }) %>
+        </select>
+        <% } %>
+    <input type="file" name="file">
+    <button type="submit">Submit</button>
+</form>
+

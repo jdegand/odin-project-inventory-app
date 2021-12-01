@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+<h1>Item view</h1>
+
+<% if (item) {%>
+    <img src="/images/<%= item.url %>" alt="">               
+    <table>
+        <tr>
+            <td><%= JSON.stringify(item) %></td>
+        </tr>
+        <tr>
+            <td>Name: <%= item.name %></td>
+        </tr>
+        <tr>
+            <td>Description: <%= item.description %></td>
+        </tr>
+        <tr>
+            <td>Category: <%= item.category.name %></td>
+        </tr>
+        <tr>
+            <td>Price: <%= item.price %></td>
+        </tr>
+        <tr>
+            <td>Quantity: <%= item.quantity %></td>
+        </tr>
+    </table>
+    <a href="/items/<%= item._id %>/delete">Delete</a>
+<% } %>
